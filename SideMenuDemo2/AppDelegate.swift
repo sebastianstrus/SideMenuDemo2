@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+   
+        
+        //create main window without storyboard
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        let menuController = MenuController()
+        let navController = UINavigationController(rootViewController: menuController)
+        window?.rootViewController = navController
+        
         return true
     }
 
