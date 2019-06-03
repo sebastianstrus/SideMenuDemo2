@@ -8,12 +8,17 @@
 
 import UIKit
 
-class MenuController: UIViewController {
+class ContainerController: UIViewController {
 
     var menuView: MenuView!
     
     var menuShowing = false
     var sideMenuXAnchor: NSLayoutConstraint?
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +39,8 @@ class MenuController: UIViewController {
         return view
     }()
     
-    lazy var toWaveView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.white
-        return view
-    }()
-    
     lazy var waveImageView: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "wave_icon")?.withRenderingMode(.alwaysTemplate))
+        let iv = UIImageView(image: UIImage(named: "wave_shape")?.withRenderingMode(.alwaysTemplate))
         iv.tintColor = UIColor.white
         iv.contentMode = UIView.ContentMode.scaleToFill
         return iv
@@ -53,7 +52,7 @@ class MenuController: UIViewController {
    
     
     func setupNavBar() {
-        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu_icon2")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(toggleMenu))
+        let menuBtn = UIBarButtonItem(image: UIImage(named: "menu_icon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(toggleMenu))
         navigationItem.leftBarButtonItem = menuBtn
     }
     
@@ -77,15 +76,11 @@ class MenuController: UIViewController {
         waveContainerView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         sideMenuXAnchor = waveContainerView.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: -80)
         sideMenuXAnchor?.isActive = true
-        //waveContainerView.centerXAnchor.constraint(equalTo: containerSideMenu.leadingAnchor, constant: 160).isActive = true
         
-        
-        waveContainerView.addSubview(toWaveView)
-        toWaveView.setAnchor(top: waveContainerView.topAnchor, leading: waveContainerView.leadingAnchor, bottom: waveContainerView.bottomAnchor, trailing: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 80, height: 0)
-        
+
         
         waveContainerView.addSubview(waveImageView)
-        waveImageView.setAnchor(top: waveContainerView.topAnchor, leading: nil, bottom: waveContainerView.bottomAnchor, trailing: waveContainerView.trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 80, height: 0)
+        waveImageView.setAnchor(top: waveContainerView.topAnchor, leading: waveContainerView.leadingAnchor, bottom: waveContainerView.bottomAnchor, trailing: waveContainerView.trailingAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         
         
         

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //create main window without storyboard
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let menuController = MenuController()
+        let menuController = ContainerController()
         let navController = UINavigationController(rootViewController: menuController)
         window?.rootViewController = navController
         
